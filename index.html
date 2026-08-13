@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FREEDOM Tattoo & Piercing Studio | Zadar</title>
-<meta name="description" content="Tattoo i piercing studio u Zadru. Realistične tetovaže, fine line, piercing i personalizirani dizajn — vl. Petar Uskok, Put Murvice 99.">
+<meta name="description" content="Tattoo i piercing studio u Zadru. Realistične tetovaže, fine line, piercing i personalizirani dizajn, vl. Petar Uskok, Put Murvice 99.">
 <meta name="theme-color" content="#0A0A0A">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
@@ -71,6 +71,7 @@ body{
   font-family:'Inter',system-ui,sans-serif;
   font-size:16.5px;line-height:1.7;
   overflow-x:clip;max-width:100%;
+  padding-bottom:5.5rem;
 }
 h1,h2,h3,.display{font-family:'Cinzel',serif;font-weight:600;line-height:1.12;letter-spacing:.04em}
 h1{font-size:clamp(2.4rem,6.5vw,4.2rem)}
@@ -80,7 +81,24 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:1150px;margin:0 auto;padding:0 1.4rem}
 section{padding:6rem 0}
-.logo-light{filter:invert(1) brightness(1.06)}
+/* White logo on dark bg, no visible PNG box */
+.logo-mark{
+  display:block;width:100%;height:auto;
+  background:transparent;border:0;outline:none;box-shadow:none;
+  filter:invert(1) brightness(1.08);
+  mix-blend-mode:screen;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+}
+.hero-logo-showcase .logo-mark{
+  position:relative;z-index:1;width:min(100%,340px);
+  filter:invert(1) brightness(1.1) drop-shadow(0 0 28px rgba(255,255,255,.14));
+}
+#floatLogo.docked .logo-mark,
+#loader .logo-mark{
+  filter:invert(1) brightness(1.08) drop-shadow(0 0 10px rgba(255,255,255,.08));
+}
+footer .f-brand .logo-mark{width:120px}
+.map-pin-core .logo-mark{width:78%;margin:0 auto}
 
 /* LOADER */
 #loader{
@@ -109,13 +127,11 @@ body.loading-play #loader .loader-logo{animation:logoInOut .9s var(--ease) forwa
 #floatLogo.docked{
   top:12px;left:.85rem;right:auto;transform:none;
   width:52px;opacity:1;pointer-events:auto;cursor:pointer;
-  filter:drop-shadow(0 8px 22px rgba(255,255,255,.12));
 }
 @media(max-width:880px){
   #floatLogo,#floatLogo.docked{
     top:12px;left:.85rem;right:auto;transform:none;
     width:52px;opacity:1;pointer-events:auto;
-    filter:drop-shadow(0 8px 22px rgba(255,255,255,.12));
   }
 }
 
@@ -162,6 +178,17 @@ nav .cta-short{display:none}
 .btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 28px -12px rgba(37,211,102,.45)}
 .btn-wa:hover{background:var(--wa2)}
 .btn-wa svg{width:18px;height:18px}
+.wa-fab,.ig-fab{padding:.78rem 1.2rem}
+.social-fab{
+  position:fixed;right:1.15rem;bottom:1.15rem;z-index:85;
+  display:flex;gap:.55rem;align-items:center;flex-wrap:wrap;justify-content:flex-end;
+}
+.social-fab .btn-wa{box-shadow:0 10px 32px rgba(37,211,102,.38)}
+.social-fab .btn-ig{box-shadow:0 10px 28px rgba(225,48,108,.22)}
+@media(max-width:640px){
+  .social-fab{left:1rem;right:1rem;bottom:1rem;justify-content:center}
+  .social-fab .btn{flex:1;justify-content:center;min-width:0}
+}
 .btn-ig{
   background:linear-gradient(135deg,rgba(225,48,108,.22),rgba(131,58,180,.14));
   color:#fff;border:1px solid var(--ig);
@@ -231,10 +258,6 @@ nav .cta-short{display:none}
   background:radial-gradient(circle,rgba(255,255,255,.14),rgba(255,255,255,.04) 42%,transparent 72%);
   filter:blur(24px);pointer-events:none;
 }
-.hero-logo-showcase img{
-  position:relative;z-index:1;width:min(100%,340px);height:auto;
-  filter:invert(1) brightness(1.08) drop-shadow(0 0 40px rgba(255,255,255,.18));
-}
 .h-item{opacity:0;transform:translateY(14px)}
 body.go .h-item{animation:heroIn .7s var(--ease) forwards}
 body.go .h-item:nth-child(1){animation-delay:.15s}
@@ -248,15 +271,12 @@ body.go .h-item:nth-child(5){animation-delay:.75s}
   .hero-sub,.hero-cta,.hero-trust{margin-left:auto;margin-right:auto}
   .hero-cta{justify-content:center}
   .hero-logo-showcase{order:-1;min-height:220px;padding:1rem 0 0}
-  .hero-logo-showcase img{width:min(72vw,260px)}
+  .hero-logo-showcase .logo-mark{width:min(72vw,260px)}
 }
 
 /* O NAMA */
 #o-nama .grid{max-width:46rem}
 #o-nama p{color:var(--soft);margin-bottom:1.1rem;max-width:40rem}
-.type-wrap{display:inline}
-.type-cursor{display:inline-block;width:2px;height:.9em;background:var(--accent);margin-left:2px;vertical-align:text-bottom;animation:blink 1s step-end infinite}
-@keyframes blink{50%{opacity:0}}
 .signature{display:flex;align-items:center;gap:.8rem;margin-top:1.6rem;font-weight:600;color:var(--accent2)}
 .signature::before{content:"";width:30px;height:1px;background:var(--accent)}
 .signature small{display:block;font-weight:400;color:var(--soft);font-size:.85rem}
@@ -375,14 +395,13 @@ body.go .h-item:nth-child(5){animation-delay:.75s}
 }
 .map-pin-core{
   position:relative;width:52px;height:52px;border-radius:50%;
-  background:#111;border:1px solid var(--line);
-  box-shadow:0 4px 18px rgba(0,0,0,.55),0 0 0 3px rgba(255,255,255,.08);
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  background:rgba(10,10,10,.55);border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 4px 18px rgba(0,0,0,.45);
+  display:flex;align-items:center;justify-content:center;overflow:visible;
 }
-.map-pin-core img{width:78%;height:auto;filter:invert(1) brightness(1.05)}
 .map-pin-core::after{
   content:"";position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);
-  border:7px solid transparent;border-top-color:var(--accent);
+  border:7px solid transparent;border-top-color:rgba(255,255,255,.18);
 }
 .map-hud{
   position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:5;
@@ -468,7 +487,7 @@ body.go .h-item:nth-child(5){animation-delay:.75s}
 /* FOOTER */
 footer{padding:4rem 0 2.5rem;border-top:1px solid var(--line);background:var(--bg2)}
 footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
-footer .f-brand img{width:120px;height:auto;margin-bottom:1rem;filter:invert(1) brightness(1.05)}
+footer .f-brand .logo-mark{margin-bottom:1rem}
 footer .f-brand p{color:var(--soft);font-size:.92rem;max-width:22rem}
 .socials{display:flex;gap:.65rem;margin-top:1.2rem;align-items:center}
 .socials a{
@@ -520,12 +539,12 @@ footer li a:hover{color:var(--accent2)}
 
 <div id="loader">
   <div class="loader-logo">
-    <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio" class="logo-light">
+    <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio" class="logo-mark">
   </div>
 </div>
 
 <a id="floatLogo" href="#hero" aria-label="FREEDOM, povratak na vrh">
-  <img src="logo.png" alt="" class="logo-light">
+  <img src="logo.png" alt="" class="logo-mark">
 </a>
 
 <nav id="nav">
@@ -552,22 +571,13 @@ footer li a:hover{color:var(--accent2)}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow h-item"><span class="gothic" aria-hidden="true">F</span> Tattoo & Piercing · Zadar</p>
+        <p class="eyebrow h-item"><span class="gothic" aria-hidden="true">F</span> Tattoo & Piercing, Zadar</p>
         <h1 class="h-item">Umjetnost na koži.<br>Sloboda u izrazu.</h1>
-        <p class="hero-sub h-item">FREEDOM je tattoo i piercing studio u Zadru — realistične tetovaže, fine line, geometrija i profesionalni piercing u opuštenom, sigurnom okruženju.</p>
-        <div class="hero-cta h-item">
-          <a class="btn btn-wa" href="https://wa.me/385953915133" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            WhatsApp
-          </a>
-          <a class="btn btn-ig" href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a class="btn btn-ghost" href="#galerija">Pogledaj radove</a>
-        </div>
-        <p class="hero-trust h-item">Najnoviji radovi i proces rada na <a href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer">Instagramu</a> · <a href="https://www.tiktok.com/@freedom_tattoo_piercing" target="_blank" rel="noopener noreferrer">TikToku</a></p>
+        <p class="hero-sub h-item">Realizam, fine line i piercing u Zadru. Tvoja priča, naša preciznost.</p>
       </div>
       <div class="hero-logo-showcase h-item" aria-hidden="true">
         <div class="logo-ambient"></div>
-        <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio">
+        <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio" class="logo-mark">
       </div>
     </div>
   </div>
@@ -577,11 +587,10 @@ footer li a:hover{color:var(--accent2)}
   <div class="wrap">
     <div class="grid rv">
       <span class="kicker">O nama</span>
-      <h2 class="type-wrap"><span id="typeTarget" data-text="Studio s dušom i preciznošću"></span><span class="type-cursor" id="typeCursor"></span></h2>
-      <p>FREEDOM je tattoo i piercing studio u Zadru koji spaja kreativnost, sigurnost i pažnju prema detaljima. Bilo da tražite prvu tetovažu, veliki realizam ili elegantan piercing — svaki projekt tretiramo kao jedinstvenu suradnju.</p>
+      <p>FREEDOM je tattoo i piercing studio u Zadru koji spaja kreativnost, sigurnost i pažnju prema detaljima. Bilo da tražite prvu tetovažu, veliki realizam ili elegantan piercing, svaki projekt tretiramo kao jedinstvenu suradnju.</p>
       <p>Studio vodi <strong>Petar Uskok</strong>, tattoo artist s naglaskom na realistične i fine line radove, preciznu liniju i personalizirani dizajn prilagođen vašoj priči. Higijena, sterilni materijali i profesionalan pristup stoje u samom centru našeg rada.</p>
       <div class="signature">
-        <span>Petar Uskok<small>vl. · tattoo artist</small></span>
+        <span>Petar Uskok<small>vl., tattoo artist</small></span>
       </div>
     </div>
   </div>
@@ -602,7 +611,7 @@ footer li a:hover{color:var(--accent2)}
       <div class="services-cols">
         <div class="service">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 19V5M8 9l4-4 4 4"/><circle cx="12" cy="12" r="9"/></svg></div>
-          <div><h3>Realistične tetovaže</h3><p>Portreti, priroda, simbolika — crno-sivi realizam s dubinom i preciznošću.</p></div>
+          <div><h3>Realistične tetovaže</h3><p>Portreti, priroda, simbolika, crno sivi realizam s dubinom i preciznošću.</p></div>
         </div>
         <div class="service">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20c4-8 8-12 16-14M6 16c2-3 5-5 9-6"/><path d="M3 21l3-1"/></svg></div>
@@ -618,7 +627,7 @@ footer li a:hover{color:var(--accent2)}
         </div>
         <div class="service">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="12" r="3"/><circle cx="16" cy="12" r="3"/><path d="M11 12h2"/></svg></div>
-          <div><h3>Piercing uha</h3><p>Helix, tragus, daith, conch, lobe — sigurno i estetski.</p></div>
+          <div><h3>Piercing uha</h3><p>Helix, tragus, daith, conch, lobe, sigurno i estetski.</p></div>
         </div>
         <div class="service">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
@@ -629,7 +638,7 @@ footer li a:hover{color:var(--accent2)}
       <div class="unsure">
         <div>
           <h3>Imate ideju, ali niste sigurni odakle krenuti?</h3>
-          <p>Pošaljite nam poruku — dogovorimo savjetovanje i prilagodimo dizajn vašem stilu.</p>
+          <p>Pošaljite nam poruku i dogovorimo savjetovanje te prilagodimo dizajn vašem stilu.</p>
         </div>
         <a class="btn btn-wa" href="#kontakt">Pošalji upit</a>
       </div>
@@ -642,7 +651,7 @@ footer li a:hover{color:var(--accent2)}
     <div style="text-align:center" class="rv">
       <span class="kicker">Galerija</span>
       <h2>Radovi iz studija</h2>
-      <p style="color:var(--soft);max-width:32rem;margin:1rem auto 0">Odabrani radovi — realistične tetovaže, fine line i ilustrativni stilovi.</p>
+      <p style="color:var(--soft);max-width:32rem;margin:1rem auto 0">Odabrani radovi u realističnom, fine line i ilustrativnom stilu.</p>
     </div>
     <div class="gallery-grid">
       <div class="gallery-item rv">
@@ -659,7 +668,7 @@ footer li a:hover{color:var(--accent2)}
       </div>
       <div class="gallery-item rv d1">
         <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/04-roses-cross.jpg" alt="" loading="lazy"></div>
-        <img class="gallery-photo" src="slike/04-roses-cross.jpg" alt="Ruže i geometrijski križ — black and grey" loading="lazy">
+        <img class="gallery-photo" src="slike/04-roses-cross.jpg" alt="Ruže i geometrijski križ, black and grey" loading="lazy">
       </div>
       <div class="gallery-item rv">
         <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/05-swimmer.jpg" alt="" loading="lazy"></div>
@@ -667,11 +676,11 @@ footer li a:hover{color:var(--accent2)}
       </div>
       <div class="gallery-item rv d1">
         <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/06-compass-map.jpg" alt="" loading="lazy"></div>
-        <img class="gallery-photo" src="slike/06-compass-map.jpg" alt="Kompas, karta i sat — realistična tetovaža" loading="lazy">
+        <img class="gallery-photo" src="slike/06-compass-map.jpg" alt="Kompas, karta i sat, realistična tetovaža" loading="lazy">
       </div>
       <div class="gallery-item rv">
         <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/07-world-yours.jpg" alt="" loading="lazy"></div>
-        <img class="gallery-photo" src="slike/07-world-yours.jpg" alt="The world is yours — klasičan realizam" loading="lazy">
+        <img class="gallery-photo" src="slike/07-world-yours.jpg" alt="The world is yours, klasičan realizam" loading="lazy">
       </div>
       <div class="gallery-item rv d1">
         <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/08-family-compass.jpg" alt="" loading="lazy"></div>
@@ -691,7 +700,7 @@ footer li a:hover{color:var(--accent2)}
       <div class="step rv">
         <div class="num">1</div>
         <h3>Javite se</h3>
-        <p>Pošaljite upit putem WhatsAppa ili nas nazovite — odgovaramo u najkraćem roku.</p>
+        <p>Pošaljite upit putem WhatsAppa ili nas nazovite. Odgovaramo u najkraćem roku.</p>
       </div>
       <div class="step rv d1">
         <div class="num">2</div>
@@ -721,7 +730,7 @@ footer li a:hover{color:var(--accent2)}
     <div class="faq-list rv d1">
       <div class="faq-item">
         <button class="faq-q" type="button">Koje stilove tetoviranja radite?<span class="plus">+</span></button>
-        <div class="faq-a"><p>Realistične, fine line, ilustrativne, geometrijske, klasične i apstraktne tetovaže — uvijek prilagođene vašoj ideji i anatomiji.</p></div>
+        <div class="faq-a"><p>Realistične, fine line, ilustrativne, geometrijske, klasične i apstraktne tetovaže, uvijek prilagođene vašoj ideji i anatomiji.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Radite li piercing?<span class="plus">+</span></button>
@@ -729,7 +738,7 @@ footer li a:hover{color:var(--accent2)}
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Kakvo je radno vrijeme?<span class="plus">+</span></button>
-        <div class="faq-a"><p>Ponedjeljak – subota od 12:00 do 20:00. Nedjeljom ne radimo.</p></div>
+        <div class="faq-a"><p>Ponedjeljak do subote od 12:00 do 20:00. Nedjeljom ne radimo.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Gdje se nalazite?<span class="plus">+</span></button>
@@ -737,10 +746,10 @@ footer li a:hover{color:var(--accent2)}
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Kako rezervirati termin?<span class="plus">+</span></button>
-        <div class="faq-a"><p>Najbrže putem WhatsAppa — ispunite <a class="btn-mini" href="#kontakt">kontakt formu</a> ili nas nazovite na 095 391 5133.</p></div>
+        <div class="faq-a"><p>Najbrže putem WhatsAppa. Ispunite <a class="btn-mini" href="#kontakt">kontakt formu</a> ili nas nazovite na 095 391 5133.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">Prva tetovaža — što očekivati?<span class="plus">+</span></button>
+        <button class="faq-q" type="button">Prva tetovaža, što očekivati?<span class="plus">+</span></button>
         <div class="faq-a"><p>Prvo savjetovanje, dogovor o dizajnu i veličini, zatim profesionalno izvođenje u opuštenom okruženju. Objasnit ćemo cijeli proces i njegu nakon rada.</p></div>
       </div>
     </div>
@@ -752,7 +761,7 @@ footer li a:hover{color:var(--accent2)}
     <div style="text-align:center" class="rv">
       <span class="kicker">Lokacija</span>
       <h2>Put Murvice 99, Zadar</h2>
-      <p style="color:var(--soft);max-width:34rem;margin:1rem auto 0">Studio se nalazi u Zadru — otvorite upute i dođite na savjetovanje.</p>
+      <p style="color:var(--soft);max-width:34rem;margin:1rem auto 0">Studio se nalazi u Zadru. Otvorite upute i dođite na savjetovanje.</p>
     </div>
     <div class="map-stage rv d1">
       <div class="map-frame">
@@ -762,7 +771,7 @@ footer li a:hover{color:var(--accent2)}
           referrerpolicy="no-referrer-when-downgrade"
           src="https://maps.google.com/maps?q=Put+Murvice+99,+23000+Zadar&hl=hr&z=16&output=embed"></iframe>
         <div class="map-pin" aria-hidden="true">
-          <span class="map-pin-core"><img src="logo.png" alt=""></span>
+          <span class="map-pin-core"><img src="logo.png" alt="" class="logo-mark"></span>
         </div>
         <div class="map-hud">
           <div>
@@ -786,7 +795,6 @@ footer li a:hover{color:var(--accent2)}
     <div style="text-align:center" class="rv">
       <span class="kicker">Kontakt</span>
       <h2>Rezervirajte termin</h2>
-      <p style="color:var(--soft);max-width:30rem;margin:1rem auto 0">Ispunite formu — poruka se otvara u WhatsAppu, spremna za slanje.</p>
     </div>
     <div class="grid">
       <div class="form-card rv d1">
@@ -810,9 +818,9 @@ footer li a:hover{color:var(--accent2)}
             <select id="fService" name="service">
               <option value="">Odaberite uslugu</option>
               <option>Realistična tetovaža</option>
-              <option>Fine line / ilustrativna tetovaža</option>
+              <option>Fine line i ilustrativna tetovaža</option>
               <option>Geometrijska tetovaža</option>
-              <option>Klasična / apstraktna tetovaža</option>
+              <option>Klasična ili apstraktna tetovaža</option>
               <option>Personalizirani dizajn</option>
               <option>Piercing uha</option>
               <option>Piercing nosa</option>
@@ -822,13 +830,10 @@ footer li a:hover{color:var(--accent2)}
           </div>
           <div class="field">
             <label for="fMsg">Poruka</label>
-            <textarea id="fMsg" name="message" placeholder="Opišite ideju, veličinu ili mjesto tetovaže…"></textarea>
+            <textarea id="fMsg" name="message" placeholder="Opišite ideju, veličinu ili mjesto tetovaže."></textarea>
             <span class="err">Napišite kratku poruku.</span>
           </div>
-          <button class="btn btn-wa" type="submit" style="width:100%;justify-content:center">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            Pošalji na WhatsApp
-          </button>
+          <button class="btn btn-wa" type="submit" style="width:100%;justify-content:center">Zatraži termin</button>
         </form>
       </div>
       <div class="info-card rv d2">
@@ -837,7 +842,7 @@ footer li a:hover{color:var(--accent2)}
           <div>
             <h4>Instagram</h4>
             <a href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer">@freedom_tattoo_piercing_zadar</a>
-            <p style="margin-top:.25rem;font-size:.8rem">Najnoviji radovi i proces — pratite nas ovdje.</p>
+            <p style="margin-top:.25rem;font-size:.8rem">Najnoviji radovi i proces. Pratite nas ovdje.</p>
           </div>
         </div>
         <div class="info-row">
@@ -858,7 +863,7 @@ footer li a:hover{color:var(--accent2)}
         <div class="info-row">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
-            <h4>Telefon / WhatsApp</h4>
+            <h4>Telefon i WhatsApp</h4>
             <a href="tel:+385953915133">095 391 5133</a>
           </div>
         </div>
@@ -870,7 +875,7 @@ footer li a:hover{color:var(--accent2)}
               <div class="hours-now" id="hoursNow">
                 <span class="hours-dot" aria-hidden="true"></span>
                 <div>
-                  <strong id="hoursLabel">Učitavanje…</strong>
+                  <strong id="hoursLabel">Učitavanje...</strong>
                   <p id="hoursRemain"></p>
                 </div>
               </div>
@@ -887,8 +892,8 @@ footer li a:hover{color:var(--accent2)}
   <div class="wrap">
     <div class="cols">
       <div class="f-brand">
-        <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio">
-        <p>Tattoo i piercing studio u Zadru. Realistične tetovaže, fine line i profesionalni piercing — vl. Petar Uskok.</p>
+        <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio" class="logo-mark">
+        <p>Tattoo i piercing studio u Zadru. Realistične tetovaže, fine line i profesionalni piercing, vl. Petar Uskok.</p>
         <div class="socials">
           <a class="social-ig" href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -927,15 +932,26 @@ footer li a:hover{color:var(--accent2)}
     </div>
     <div class="copy">
       <span>© <span id="year">2026</span> FREEDOM Tattoo & Piercing Studio. Sva prava pridržana.</span>
-      <span>Put Murvice 99, Zadar · 095 391 5133</span>
+      <span>Put Murvice 99, Zadar, 095 391 5133</span>
     </div>
-    <p class="demo-note">Vizualni prijedlog · preview verzija</p>
+    <p class="demo-note">Vizualni prijedlog, preview verzija</p>
     <a class="kd-credit" href="https://kasalo-digital.hr" target="_blank" rel="noopener noreferrer" aria-label="Kasalo Digital">
       <span class="kd-mark" aria-hidden="true"><img src="kasalo-logo.png" alt=""></span>
       <span>Izrada: <strong>Kasalo</strong><em>Digital</em></span>
     </a>
   </div>
 </footer>
+
+<div class="social-fab" aria-label="Brzi kontakt">
+  <a id="waFab" class="btn btn-wa wa-fab" href="https://wa.me/385953915133" target="_blank" rel="noopener noreferrer" aria-label="Javite se na WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a id="igFab" class="btn btn-ig ig-fab" href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer" aria-label="Pratite nas na Instagramu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    Instagram
+  </a>
+</div>
 
 <script>
 (function(){
@@ -972,29 +988,6 @@ footer li a:hover{color:var(--accent2)}
     });
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.rv,.step').forEach(el=>obs.observe(el));
-})();
-
-(function(){
-  const target=document.getElementById('typeTarget');
-  const cursor=document.getElementById('typeCursor');
-  if(!target)return;
-  const text=target.dataset.text||'';
-  let i=0,started=false;
-  const obs=new IntersectionObserver(entries=>{
-    if(entries[0].isIntersecting&&!started){
-      started=true;
-      const tick=()=>{
-        if(i<=text.length){
-          target.textContent=text.slice(0,i);
-          i++;
-          setTimeout(tick,45);
-        }else if(cursor)cursor.style.display='none';
-      };
-      tick();
-      obs.disconnect();
-    }
-  },{threshold:.4});
-  obs.observe(target.closest('.grid')||target);
 })();
 
 (function(){
@@ -1134,7 +1127,7 @@ footer li a:hover{color:var(--accent2)}
       day.textContent=dayShort[key]+(isToday?', danas':'');
       const range=document.createElement('span');
       range.className='hours-range';
-      range.textContent=s?(fmtHM(s[0],s[1])+' – '+fmtHM(s[2],s[3])):'Zatvoreno';
+      range.textContent=s?(fmtHM(s[0],s[1])+' do '+fmtHM(s[2],s[3])):'Zatvoreno';
       li.appendChild(day);li.appendChild(range);week.appendChild(li);
     });
   }
