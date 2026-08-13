@@ -71,7 +71,6 @@ body{
   font-family:'Inter',system-ui,sans-serif;
   font-size:16.5px;line-height:1.7;
   overflow-x:clip;max-width:100%;
-  padding-bottom:5.5rem;
 }
 h1,h2,h3,.display{font-family:'Cinzel',serif;font-weight:600;line-height:1.12;letter-spacing:.04em}
 h1{font-size:clamp(2.4rem,6.5vw,4.2rem)}
@@ -81,21 +80,19 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:1150px;margin:0 auto;padding:0 1.4rem}
 section{padding:6rem 0}
-/* White logo on dark bg, no visible PNG box */
+/* White logo on transparent PNG */
 .logo-mark{
   display:block;width:100%;height:auto;
   background:transparent;border:0;outline:none;box-shadow:none;
-  filter:invert(1) brightness(1.08);
-  mix-blend-mode:screen;
   -webkit-backface-visibility:hidden;backface-visibility:hidden;
 }
 .hero-logo-showcase .logo-mark{
   position:relative;z-index:1;width:min(100%,340px);
-  filter:invert(1) brightness(1.1) drop-shadow(0 0 28px rgba(255,255,255,.14));
+  filter:drop-shadow(0 0 28px rgba(255,255,255,.14));
 }
 #floatLogo.docked .logo-mark,
 #loader .logo-mark{
-  filter:invert(1) brightness(1.08) drop-shadow(0 0 10px rgba(255,255,255,.08));
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.08));
 }
 footer .f-brand .logo-mark{width:120px}
 .map-pin-core .logo-mark{width:78%;margin:0 auto}
@@ -122,8 +119,9 @@ body.loading-play #loader .loader-logo{animation:logoInOut .9s var(--ease) forwa
   position:fixed;z-index:90;top:50%;right:5vw;transform:translateY(-46%);
   width:min(280px,34vw);opacity:.12;pointer-events:none;
   transition:all .45s var(--ease);
+  background:transparent;border:0;outline:none;
 }
-#floatLogo img{width:100%;height:auto}
+#floatLogo img{width:100%;height:auto;background:transparent}
 #floatLogo.docked{
   top:12px;left:.85rem;right:auto;transform:none;
   width:52px;opacity:1;pointer-events:auto;cursor:pointer;
@@ -178,16 +176,12 @@ nav .cta-short{display:none}
 .btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 28px -12px rgba(37,211,102,.45)}
 .btn-wa:hover{background:var(--wa2)}
 .btn-wa svg{width:18px;height:18px}
-.wa-fab,.ig-fab{padding:.78rem 1.2rem}
-.social-fab{
-  position:fixed;right:1.15rem;bottom:1.15rem;z-index:85;
-  display:flex;gap:.55rem;align-items:center;flex-wrap:wrap;justify-content:flex-end;
-}
-.social-fab .btn-wa{box-shadow:0 10px 32px rgba(37,211,102,.38)}
-.social-fab .btn-ig{box-shadow:0 10px 28px rgba(225,48,108,.22)}
+.bottom-cta{padding:0 0 3rem;border-top:1px solid var(--line);background:var(--bg2)}
+.bottom-cta .wrap{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;padding-top:2.5rem}
+.bottom-cta .btn-wa{box-shadow:0 10px 32px rgba(37,211,102,.38)}
+.bottom-cta .btn-ig{box-shadow:0 10px 28px rgba(225,48,108,.22)}
 @media(max-width:640px){
-  .social-fab{left:1rem;right:1rem;bottom:1rem;justify-content:center}
-  .social-fab .btn{flex:1;justify-content:center;min-width:0}
+  .bottom-cta .btn{flex:1;justify-content:center;min-width:0}
 }
 .btn-ig{
   background:linear-gradient(135deg,rgba(225,48,108,.22),rgba(131,58,180,.14));
@@ -382,6 +376,82 @@ body.go .h-item:nth-child(5){animation-delay:.75s}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .faq-a p{padding:0 1.5rem 1.3rem;color:var(--soft);font-size:.94rem}
 
+/* RECENZIJE */
+#recenzije{background:var(--bg2);overflow-x:clip}
+.reviews-head{text-align:center;max-width:36rem;margin:0 auto 2rem}
+.reviews-score{
+  display:inline-flex;align-items:center;gap:.7rem;flex-wrap:wrap;justify-content:center;
+  background:rgba(255,255,255,.04);border:1px solid var(--line);
+  border-radius:999px;padding:.65rem 1.25rem;margin-top:1.2rem;
+  font-weight:600;font-size:.95rem;
+}
+.reviews-score .num{font-family:'Cinzel',serif;font-size:1.45rem;color:var(--accent2)}
+.reviews-score .stars{
+  color:#f5d061;letter-spacing:.08em;font-size:1rem;
+  animation:starPulse 2.4s ease-in-out infinite;
+}
+.reviews-score .tag{
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--soft);padding:.2rem .55rem;border-radius:999px;border:1px solid var(--line);
+}
+@keyframes starPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.82;transform:scale(1.04)}}
+.reviews-marquee{
+  position:relative;overflow:hidden;margin:2rem 0 2.4rem;
+  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+}
+.reviews-marquee-track{
+  display:flex;gap:.85rem;width:max-content;
+  animation:reviewMarquee 42s linear infinite;
+}
+.reviews-chip{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:.55rem;
+  padding:.55rem 1rem;border-radius:999px;white-space:nowrap;
+  background:var(--card);border:1px solid var(--line);color:var(--soft);font-size:.82rem;
+}
+.reviews-chip .s{color:#f5d061;letter-spacing:.06em}
+@keyframes reviewMarquee{to{transform:translateX(-50%)}}
+.reviews-rotator{max-width:680px;margin:0 auto}
+.reviews-stage{position:relative;min-height:230px}
+.review-card{
+  position:absolute;inset:0;
+  background:var(--card);border-radius:20px;padding:1.75rem 1.65rem 1.5rem;
+  border:1px solid var(--line);
+  box-shadow:0 18px 50px -28px rgba(0,0,0,.65);
+  opacity:0;visibility:hidden;transform:translateY(16px);
+  transition:opacity .55s var(--ease),transform .55s var(--ease),visibility .55s;
+  pointer-events:none;
+}
+.review-card.is-active{
+  position:relative;opacity:1;visibility:visible;transform:none;pointer-events:auto;
+}
+.review-card.is-exit{
+  position:absolute;opacity:0;visibility:hidden;transform:translateY(-12px);
+}
+.review-card .stars{color:#f5d061;font-size:.92rem;letter-spacing:.12em;margin-bottom:.75rem}
+.review-card blockquote{
+  color:var(--soft);font-size:1rem;line-height:1.72;margin:0 0 1.1rem;font-style:normal;
+}
+.review-card .author{font-weight:600;font-size:.94rem}
+.review-card .when{color:var(--soft);font-size:.8rem;margin-top:.2rem}
+.reviews-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.25rem}
+.reviews-dots button{
+  width:8px;height:8px;border-radius:50%;border:0;padding:0;
+  background:rgba(255,255,255,.18);cursor:pointer;transition:background .25s,transform .25s;
+}
+.reviews-dots button[aria-current="true"]{background:var(--accent);transform:scale(1.25)}
+.reviews-cta{text-align:center;margin-top:2rem}
+.reviews-cta p{color:var(--soft);font-size:.82rem;margin-top:.75rem}
+@media(max-width:640px){
+  .reviews-stage{min-height:250px}
+  .review-card{padding:1.45rem 1.2rem 1.25rem}
+  .review-card blockquote{font-size:.94rem;line-height:1.65}
+}
+@media(prefers-reduced-motion:reduce){
+  .reviews-marquee-track{animation:none}
+  .reviews-score .stars{animation:none}
+}
+
 /* LOKACIJA */
 .map-stage{
   position:relative;margin-top:2.6rem;border-radius:24px;overflow:hidden;
@@ -443,8 +513,9 @@ body.go .h-item:nth-child(5){animation-delay:.75s}
 .field.invalid .err{display:block}
 .field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#ff8a7a}
 .hp{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-.info-row{display:flex;gap:1rem;align-items:flex-start;padding:1rem 0}
+.info-row{display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;min-width:0}
 .info-row+.info-row{border-top:1px solid var(--line)}
+.info-row > div:not(.ic){min-width:0;flex:1}
 .info-row .ic{
   flex:0 0 42px;width:42px;height:42px;border-radius:12px;
   background:var(--accent-bg);border:1px solid var(--line);color:var(--accent);
@@ -452,7 +523,10 @@ body.go .h-item:nth-child(5){animation-delay:.75s}
 }
 .info-row .ic svg{width:19px;height:19px}
 .info-row h4{font-size:.92rem;margin-bottom:.08rem}
-.info-row p,.info-row a{color:var(--soft);font-size:.9rem}
+.info-row p,.info-row a{
+  color:var(--soft);font-size:.9rem;
+  overflow-wrap:anywhere;word-break:break-word;
+}
 .info-row a:hover{color:var(--accent2)}
 .info-row.info-ig{
   margin:.35rem -.65rem;padding:1rem .65rem;border-radius:14px;
@@ -465,6 +539,9 @@ body.go .h-item:nth-child(5){animation-delay:.75s}
 }
 .info-row.info-ig h4{color:var(--accent2)}
 .info-row.info-ig a{color:#f5b8cc;font-weight:500}
+@media(max-width:640px){
+  .info-row.info-ig{margin-left:0;margin-right:0}
+}
 .hours-live{width:100%;margin-top:.3rem}
 .hours-now{
   display:flex;align-items:center;gap:.7rem;padding:.7rem .8rem;border-radius:12px;
@@ -514,6 +591,7 @@ footer li a:hover{color:var(--accent2)}
   padding-top:1.5rem;border-top:1px solid var(--line);
   color:var(--soft);font-size:.82rem;
 }
+.copy span{min-width:0;overflow-wrap:anywhere}
 .demo-note{
   margin-top:1rem;padding:.65rem 1rem;border-radius:10px;
   background:rgba(255,255,255,.04);border:1px dashed var(--line);
@@ -532,6 +610,15 @@ footer li a:hover{color:var(--accent2)}
 @media(max-width:760px){
   footer .cols{grid-template-columns:1fr}
   section{padding:4.5rem 0}
+}
+@media(max-width:640px){
+  #hero{padding:6.5rem 0 4rem}
+  .form-card,.info-card{padding:1.55rem 1.15rem}
+  .copy{flex-direction:column;align-items:flex-start;gap:.45rem}
+  .info-row.info-ig a{font-size:.82rem;line-height:1.45}
+  #floatLogo.docked,#floatLogo{
+    min-width:52px;min-height:44px;display:flex;align-items:center;
+  }
 }
 </style>
 </head>
@@ -553,6 +640,7 @@ footer li a:hover{color:var(--accent2)}
     <li><a href="#o-nama">O nama</a></li>
     <li><a href="#usluge">Usluge</a></li>
     <li><a href="#galerija">Galerija</a></li>
+    <li><a href="#recenzije">Recenzije</a></li>
     <li><a href="#lokacija">Lokacija</a></li>
     <li><a href="#faq">Pitanja</a></li>
   </ul>
@@ -717,6 +805,78 @@ footer li a:hover{color:var(--accent2)}
         <h3>Njega</h3>
         <p>Dajemo jasne upute za zacjeljivanje kako bi rezultat trajao godinama.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="recenzije">
+  <div class="wrap">
+    <div class="reviews-head rv">
+      <span class="kicker">Recenzije</span>
+      <h2>Najbolje ocjene</h2>
+      <div class="reviews-score" aria-label="5.0 od 5 zvjezdica">
+        <span class="num">5.0</span>
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="tag">Google</span>
+      </div>
+    </div>
+
+    <div class="reviews-marquee rv d1" aria-hidden="true">
+      <div class="reviews-marquee-track">
+        <span class="reviews-chip"><span class="s">★★★★★</span> Profesionalno i precizno</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Odličan realizam</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Siguran piercing</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Preporučujem studio</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Ugodna atmosfera</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Fine line savršenstvo</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Profesionalno i precizno</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Odličan realizam</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Siguran piercing</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Preporučujem studio</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Ugodna atmosfera</span>
+        <span class="reviews-chip"><span class="s">★★★★★</span> Fine line savršenstvo</span>
+      </div>
+    </div>
+
+    <div class="reviews-rotator rv d2" id="reviewsRotator">
+      <div class="reviews-stage">
+        <article class="review-card is-active">
+          <div class="stars" aria-label="5 zvjezdica">★★★★★</div>
+          <blockquote>Realistična tetovaža ispala je točno onako kako sam zamislila. Studio je uredan, a cijeli proces od savjetovanja do završetka prošao je mirno i profesionalno.</blockquote>
+          <div class="author">Lucija P.</div>
+          <div class="when">Google, 5 zvjezdica</div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="5 zvjezdica">★★★★★</div>
+          <blockquote>Prvi put na piercingu i odmah sam se osjećala sigurno. Sve je objašnjeno, brzo i uredno. Helix mi izgleda odlično.</blockquote>
+          <div class="author">Marko K.</div>
+          <div class="when">Google, 5 zvjezdica</div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="5 zvjezdica">★★★★★</div>
+          <blockquote>Fine line rad je precizan do zadnjeg detalja. Dizajn su prilagodili mom prostoru i stilu, a rezultat izgleda još bolje nego na skici.</blockquote>
+          <div class="author">Ana M.</div>
+          <div class="when">Google, 5 zvjezdica</div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="5 zvjezdica">★★★★★</div>
+          <blockquote>Od prvog upita do gotove tetovaže sve je bilo jasno i dogovoreno. Opuštena atmosfera, a opet maksimalna pažnja i higijena.</blockquote>
+          <div class="author">Toni B.</div>
+          <div class="when">Google, 5 zvjezdica</div>
+        </article>
+        <article class="review-card">
+          <div class="stars" aria-label="5 zvjezdica">★★★★★</div>
+          <blockquote>Personalizirani dizajn i strpljivo savjetovanje prije rada. Osjećaj da stvarno slušaju što klijent želi, a ne samo rade po šabloni.</blockquote>
+          <div class="author">Google korisnik</div>
+          <div class="when">Google, 5 zvjezdica</div>
+        </article>
+      </div>
+      <div class="reviews-dots" id="reviewsDots" role="tablist" aria-label="Recenzije"></div>
+    </div>
+
+    <div class="reviews-cta rv d3">
+      <a class="btn btn-ghost" href="https://share.google/iIfN5vf9jvH4Y9dou" target="_blank" rel="noopener noreferrer">Sve recenzije na Googleu</a>
+      <p>Primjeri recenzija za vizualni prikaz stranice.</p>
     </div>
   </div>
 </section>
@@ -888,6 +1048,19 @@ footer li a:hover{color:var(--accent2)}
   </div>
 </section>
 
+<section class="bottom-cta" aria-label="Brzi kontakt">
+  <div class="wrap">
+    <a class="btn btn-wa" href="https://wa.me/385953915133" target="_blank" rel="noopener noreferrer" aria-label="Javite se na WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a class="btn btn-ig" href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer" aria-label="Pratite nas na Instagramu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="cols">
@@ -915,6 +1088,7 @@ footer li a:hover{color:var(--accent2)}
           <li><a href="#o-nama">O nama</a></li>
           <li><a href="#usluge">Usluge</a></li>
           <li><a href="#galerija">Galerija</a></li>
+          <li><a href="#recenzije">Recenzije</a></li>
           <li><a href="#lokacija">Lokacija</a></li>
           <li><a href="#faq">Pitanja</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
@@ -941,17 +1115,6 @@ footer li a:hover{color:var(--accent2)}
     </a>
   </div>
 </footer>
-
-<div class="social-fab" aria-label="Brzi kontakt">
-  <a id="waFab" class="btn btn-wa wa-fab" href="https://wa.me/385953915133" target="_blank" rel="noopener noreferrer" aria-label="Javite se na WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-    WhatsApp
-  </a>
-  <a id="igFab" class="btn btn-ig ig-fab" href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer" aria-label="Pratite nas na Instagramu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-    Instagram
-  </a>
-</div>
 
 <script>
 (function(){
@@ -1133,6 +1296,55 @@ footer li a:hover{color:var(--accent2)}
   }
   render();
   setInterval(render,30000);
+})();
+
+(function(){
+  const root=document.getElementById('reviewsRotator');
+  const dotsWrap=document.getElementById('reviewsDots');
+  if(!root||!dotsWrap)return;
+  const cards=[...root.querySelectorAll('.review-card')];
+  if(cards.length<2)return;
+
+  let i=0;
+  let timer=null;
+  const DELAY=5200;
+
+  cards.forEach((_,idx)=>{
+    const b=document.createElement('button');
+    b.type='button';
+    b.setAttribute('aria-label','Recenzija '+(idx+1));
+    if(idx===0)b.setAttribute('aria-current','true');
+    b.addEventListener('click',()=>go(idx,true));
+    dotsWrap.appendChild(b);
+  });
+  const dots=[...dotsWrap.querySelectorAll('button')];
+
+  function go(next,manual){
+    if(next===i)return;
+    const prev=cards[i];
+    i=(next+cards.length)%cards.length;
+    const cur=cards[i];
+    prev.classList.remove('is-active');
+    prev.classList.add('is-exit');
+    cur.classList.add('is-active');
+    cur.classList.remove('is-exit');
+    dots.forEach((d,di)=>d.setAttribute('aria-current',di===i?'true':'false'));
+    setTimeout(()=>prev.classList.remove('is-exit'),560);
+    if(manual)restart();
+  }
+
+  function tick(){go(i+1,false);}
+  function restart(){
+    clearInterval(timer);
+    timer=setInterval(tick,DELAY);
+  }
+
+  root.addEventListener('mouseenter',()=>clearInterval(timer));
+  root.addEventListener('mouseleave',restart);
+  root.addEventListener('focusin',()=>clearInterval(timer));
+  root.addEventListener('focusout',restart);
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  restart();
 })();
 </script>
 </body>
