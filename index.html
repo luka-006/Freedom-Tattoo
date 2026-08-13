@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FREEDOM Tattoo & Piercing Studio | Zadar</title>
+<meta name="description" content="Tattoo i piercing studio u Zadru. Realistične tetovaže, fine line, piercing i personalizirani dizajn — vl. Petar Uskok, Put Murvice 99.">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hr_HR">
+<meta property="og:title" content="FREEDOM Tattoo & Piercing Studio | Zadar">
+<meta property="og:description" content="Tattoo i piercing studio u Zadru. Tetoviranje i piercing uz Petara Uskoka.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TattooParlor",
+  "name": "FREEDOM Tattoo & Piercing Studio",
+  "description": "Tattoo i piercing studio u Zadru. Realistične tetovaže, fine line, piercing i personalizirani dizajn.",
+  "telephone": "+385953915133",
+  "image": "logo.png",
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Put+Murvice+99%2C+Zadar",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Put Murvice 99",
+    "addressLocality": "Zadar",
+    "postalCode": "23000",
+    "addressCountry": "HR"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "12:00",
+    "closes": "20:00"
+  }],
+  "sameAs": [
+    "https://www.instagram.com/freedom_tattoo_piercing_zadar/",
+    "https://www.tiktok.com/@freedom_tattoo_piercing",
+    "https://share.google/iIfN5vf9jvH4Y9dou"
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#0A0A0A;
+  --bg2:#111111;
+  --card:#161616;
+  --ink:#F0F0F0;
+  --soft:#949494;
+  --accent:#E8E8E8;
+  --accent2:#FFFFFF;
+  --accent-bg:rgba(255,255,255,.07);
+  --line:rgba(255,255,255,.12);
+  --wa:#25D366;
+  --wa2:#1EBE57;
+  --ig:rgba(225,48,108,.35);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --radius:22px;
+  --shadow:0 18px 50px -18px rgba(0,0,0,.65);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip;max-width:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:16.5px;line-height:1.7;
+  overflow-x:clip;max-width:100%;
+}
+h1,h2,h3,.display{font-family:'Cinzel',serif;font-weight:600;line-height:1.12;letter-spacing:.04em}
+h1{font-size:clamp(2.4rem,6.5vw,4.2rem)}
+h2{font-size:clamp(2rem,4.8vw,3rem)}
+.gothic{font-family:'UnifrakturMaguntia',serif;font-weight:400;letter-spacing:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1150px;margin:0 auto;padding:0 1.4rem}
+section{padding:6rem 0}
+.logo-light{filter:invert(1) brightness(1.06)}
+
+/* LOADER */
+#loader{
+  position:fixed;inset:0;z-index:200;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .35s var(--ease),visibility .35s;
+}
+#loader.done{opacity:0;visibility:hidden;pointer-events:none}
+#loader .loader-logo{opacity:0;transform:scale(.94);text-align:center}
+body.loading-play #loader .loader-logo{animation:logoInOut .9s var(--ease) forwards}
+@keyframes logoInOut{
+  0%{opacity:0;transform:scale(.94)}
+  30%{opacity:1;transform:scale(1)}
+  70%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(1.04)}
+}
+#loader .loader-logo img{width:min(220px,62vw);height:auto}
+
+/* FLOAT LOGO */
+#floatLogo{
+  position:fixed;z-index:90;top:50%;right:5vw;transform:translateY(-46%);
+  width:min(280px,34vw);opacity:.12;pointer-events:none;
+  transition:all .45s var(--ease);
+}
+#floatLogo img{width:100%;height:auto}
+#floatLogo.docked{
+  top:12px;left:.85rem;right:auto;transform:none;
+  width:52px;opacity:1;pointer-events:auto;cursor:pointer;
+  filter:drop-shadow(0 8px 22px rgba(255,255,255,.12));
+}
+@media(max-width:880px){
+  #floatLogo,#floatLogo.docked{
+    top:12px;left:.85rem;right:auto;transform:none;
+    width:52px;opacity:1;pointer-events:auto;
+    filter:drop-shadow(0 8px 22px rgba(255,255,255,.12));
+  }
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:80;
+  display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+  padding:.85rem 1.4rem;
+  transition:background .5s var(--ease),border-color .5s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(10,10,10,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
+}
+nav .brand-slot{flex:0 0 52px;min-width:52px;min-height:44px}
+nav ul{display:flex;gap:1.8rem;list-style:none}
+nav ul a{font-size:.88rem;font-weight:500;color:var(--soft);transition:color .3s;letter-spacing:.04em}
+nav ul a:hover{color:var(--accent2)}
+.nav-right{display:flex;align-items:center;gap:.55rem}
+nav .cta-short{display:none}
+@media(max-width:880px){
+  nav ul{display:none}
+  nav{padding:.7rem .85rem}
+  nav .cta-full{display:none}
+  nav .cta-short{display:inline}
+}
+
+/* BUTTONS */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.85rem 1.6rem;border-radius:999px;font-weight:600;font-size:.94rem;
+  transition:transform .4s var(--ease),box-shadow .4s,background .3s;
+  overflow:hidden;white-space:nowrap;cursor:pointer;border:none;max-width:100%;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--accent);color:#0A0A0A;box-shadow:0 10px 28px -12px rgba(255,255,255,.25)}
+.btn-primary:hover{background:var(--accent2)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid rgba(255,255,255,.18)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-call{background:var(--accent-bg);color:var(--accent);padding:.7rem 1.15rem;flex-shrink:0;border:1px solid var(--line)}
+.btn-call svg{width:17px;height:17px}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 28px -12px rgba(37,211,102,.45)}
+.btn-wa:hover{background:var(--wa2)}
+.btn-wa svg{width:18px;height:18px}
+.btn-ig{
+  background:linear-gradient(135deg,rgba(225,48,108,.22),rgba(131,58,180,.14));
+  color:#fff;border:1px solid var(--ig);
+  box-shadow:0 8px 24px -10px rgba(225,48,108,.35);
+}
+.btn-ig:hover{box-shadow:0 12px 30px -8px rgba(225,48,108,.45)}
+.btn-mini{
+  display:inline-flex;padding:.2rem .65rem;border-radius:999px;
+  font-size:.78rem;font-weight:700;background:var(--accent);color:#0A0A0A;
+}
+@media(max-width:640px){
+  .btn-call span{display:none}
+  .btn-call{padding:.7rem .8rem}
+  .btn{padding:.8rem 1.2rem;font-size:.88rem}
+}
+
+/* KICKER + REVEAL */
+.kicker{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-size:.76rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--soft);margin-bottom:1rem;
+}
+.kicker::before{
+  content:"";width:34px;height:1px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;transition:transform .45s .05s var(--ease);
+}
+.in .kicker::before{transform:scaleX(1)}
+.rv{opacity:0;transform:translateY(12px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.05s}.d2{transition-delay:.1s}.d3{transition-delay:.15s}.d4{transition-delay:.2s}
+
+/* HERO */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;padding:8rem 0 5rem;overflow:hidden;
+}
+#hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 45% at 78% 42%,rgba(255,255,255,.06),transparent 68%),
+    radial-gradient(ellipse 40% 35% at 12% 78%,rgba(255,255,255,.03),transparent 70%);
+}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:.45}
+.blob1{width:420px;height:420px;background:rgba(255,255,255,.04);top:-8%;right:-6%}
+.blob2{width:300px;height:300px;background:rgba(255,255,255,.03);bottom:8%;left:-8%}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr .85fr;gap:3rem;align-items:center;
+  position:relative;z-index:2;
+}
+.hero-copy .eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-size:.78rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--soft);margin-bottom:1.2rem;
+}
+.hero-copy .eyebrow .gothic{font-size:1.35rem;color:var(--accent2);letter-spacing:.02em;text-transform:none}
+.hero-sub{color:var(--soft);font-size:1.08rem;max-width:34rem;margin:0 0 2rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.hero-trust{margin-top:1.8rem;font-size:.86rem;color:var(--soft)}
+.hero-trust a{color:var(--accent2);text-decoration:underline;text-underline-offset:3px}
+.hero-trust a:hover{color:#fff}
+.hero-logo-showcase{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  min-height:320px;padding:2rem;
+}
+.hero-logo-showcase .logo-ambient{
+  position:absolute;inset:8%;
+  background:radial-gradient(circle,rgba(255,255,255,.14),rgba(255,255,255,.04) 42%,transparent 72%);
+  filter:blur(24px);pointer-events:none;
+}
+.hero-logo-showcase img{
+  position:relative;z-index:1;width:min(100%,340px);height:auto;
+  filter:invert(1) brightness(1.08) drop-shadow(0 0 40px rgba(255,255,255,.18));
+}
+.h-item{opacity:0;transform:translateY(14px)}
+body.go .h-item{animation:heroIn .7s var(--ease) forwards}
+body.go .h-item:nth-child(1){animation-delay:.15s}
+body.go .h-item:nth-child(2){animation-delay:.3s}
+body.go .h-item:nth-child(3){animation-delay:.45s}
+body.go .h-item:nth-child(4){animation-delay:.6s}
+body.go .h-item:nth-child(5){animation-delay:.75s}
+@keyframes heroIn{to{opacity:1;transform:none}}
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-sub,.hero-cta,.hero-trust{margin-left:auto;margin-right:auto}
+  .hero-cta{justify-content:center}
+  .hero-logo-showcase{order:-1;min-height:220px;padding:1rem 0 0}
+  .hero-logo-showcase img{width:min(72vw,260px)}
+}
+
+/* O NAMA */
+#o-nama .grid{max-width:46rem}
+#o-nama p{color:var(--soft);margin-bottom:1.1rem;max-width:40rem}
+.type-wrap{display:inline}
+.type-cursor{display:inline-block;width:2px;height:.9em;background:var(--accent);margin-left:2px;vertical-align:text-bottom;animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.signature{display:flex;align-items:center;gap:.8rem;margin-top:1.6rem;font-weight:600;color:var(--accent2)}
+.signature::before{content:"";width:30px;height:1px;background:var(--accent)}
+.signature small{display:block;font-weight:400;color:var(--soft);font-size:.85rem}
+
+/* USLUGE */
+#usluge .frame{
+  position:relative;border:1px solid var(--line);border-radius:28px;border-top:none;
+  background:var(--card);padding:3.5rem 3rem 2.6rem;margin-top:3rem;
+}
+#usluge .ornament{
+  position:absolute;left:26px;right:26px;top:0;height:36px;transform:translateY(-50%);
+  color:var(--soft);pointer-events:none;
+}
+#usluge .ornament svg{width:100%;height:36px;display:block}
+.services-cols{columns:2 320px;column-gap:2.5rem}
+.service{
+  break-inside:avoid;display:flex;gap:1rem;align-items:flex-start;padding:1.1rem 0;
+}
+.service .icon{
+  flex:0 0 46px;width:46px;height:46px;border-radius:50%;
+  background:var(--accent-bg);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--accent);
+}
+.service .icon svg{width:20px;height:20px}
+.service h3{font-size:1.05rem;margin-bottom:.15rem;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0}
+.service p{color:var(--soft);font-size:.92rem}
+.moto{
+  text-align:center;font-family:'Cinzel',serif;font-style:italic;
+  font-size:1.15rem;color:var(--soft);margin:2.2rem 0 1.6rem;
+}
+.unsure{
+  background:var(--accent-bg);border:1px solid var(--line);border-radius:20px;
+  padding:1.5rem 1.8rem;display:flex;align-items:center;justify-content:space-between;
+  gap:1.2rem;flex-wrap:wrap;
+}
+.unsure h3{font-size:1.15rem;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0}
+.unsure p{color:var(--soft);font-size:.9rem}
+@media(max-width:640px){
+  #usluge .frame{padding:3rem 1.2rem 2rem}
+  .unsure .btn{width:100%;justify-content:center}
+}
+
+/* GALERIJA */
+#galerija{background:var(--bg2)}
+.gallery-grid{
+  display:flex;flex-direction:column;gap:3.2rem;
+  max-width:820px;margin:2.6rem auto 0;
+}
+.gallery-item{position:relative;padding:2.8rem 1.5rem;overflow:visible}
+.gallery-ambient{
+  position:absolute;z-index:0;pointer-events:none;left:50%;top:50%;
+  width:130%;height:125%;transform:translate(-50%,-50%);overflow:hidden;
+  -webkit-mask-image:radial-gradient(ellipse 70% 66% at 50% 50%,#000 10%,#000 36%,rgba(0,0,0,.35) 56%,transparent 74%);
+  mask-image:radial-gradient(ellipse 70% 66% at 50% 50%,#000 10%,#000 36%,rgba(0,0,0,.35) 56%,transparent 74%);
+}
+.gallery-item .gallery-blur{
+  position:absolute;inset:-35%;width:170%;height:170%;max-width:none;
+  object-fit:cover;object-position:center;
+  filter:blur(42px) saturate(.85) brightness(.72);
+  opacity:.9;
+}
+.gallery-item .gallery-photo{
+  position:relative;z-index:1;width:100%;height:auto;
+  box-shadow:0 24px 60px -28px rgba(0,0,0,.75);
+}
+@media(max-width:640px){
+  .gallery-grid{gap:2.2rem}
+  .gallery-item{padding:2rem .4rem}
+}
+
+/* PROCES */
+#proces{background:var(--bg)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;margin-top:3rem}
+.step .num{
+  width:50px;height:50px;border-radius:50%;background:var(--accent-bg);
+  border:1px solid var(--line);color:var(--accent);
+  font-family:'Cinzel',serif;font-size:1.2rem;
+  display:flex;align-items:center;justify-content:center;margin-bottom:1rem;
+  transform:scale(.85);transition:transform .45s var(--ease);
+}
+.step.in .num{transform:scale(1)}
+.step h3{font-size:1.05rem;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0;margin-bottom:.3rem}
+.step p{color:var(--soft);font-size:.92rem}
+@media(max-width:960px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-list{max-width:44rem;margin:2.6rem auto 0}
+.faq-item{background:var(--card);border-radius:16px;margin-bottom:.8rem;border:1px solid var(--line)}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:1.25rem 1.5rem;font:inherit;font-weight:600;font-size:1rem;
+  color:var(--ink);text-align:left;
+}
+.faq-q .plus{
+  flex:0 0 auto;width:28px;height:28px;border-radius:50%;
+  background:var(--accent-bg);border:1px solid var(--line);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  transition:transform .4s var(--ease);
+}
+.faq-item.open .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 1.5rem 1.3rem;color:var(--soft);font-size:.94rem}
+
+/* LOKACIJA */
+.map-stage{
+  position:relative;margin-top:2.6rem;border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);background:#0d0d0d;
+}
+.map-frame{position:relative;height:min(58vh,460px);min-height:280px}
+.map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.35) contrast(1.05) brightness(.82)}
+.map-pin{
+  position:absolute;left:50%;top:46%;z-index:4;pointer-events:none;
+  transform:translate(-50%,-100%);width:52px;height:52px;
+}
+.map-pin-core{
+  position:relative;width:52px;height:52px;border-radius:50%;
+  background:#111;border:1px solid var(--line);
+  box-shadow:0 4px 18px rgba(0,0,0,.55),0 0 0 3px rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.map-pin-core img{width:78%;height:auto;filter:invert(1) brightness(1.05)}
+.map-pin-core::after{
+  content:"";position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);
+  border:7px solid transparent;border-top-color:var(--accent);
+}
+.map-hud{
+  position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:5;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  padding:1rem 1.15rem;border-radius:16px;
+  background:rgba(10,10,10,.88);border:1px solid var(--line);backdrop-filter:blur(10px);
+}
+.map-hud-title{display:flex;align-items:center;gap:.55rem}
+.map-hud h3{font-size:1rem;font-family:'Cinzel',serif}
+.map-hud p{color:var(--soft);font-size:.88rem;margin-top:.15rem}
+.map-g{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;background:var(--accent-bg);color:var(--accent);
+}
+.map-g svg{width:16px;height:16px}
+
+/* KONTAKT */
+#kontakt .grid{display:grid;grid-template-columns:1.12fr 1fr;gap:2.5rem;margin-top:3rem}
+@media(max-width:880px){#kontakt .grid{grid-template-columns:1fr}}
+.form-card,.info-card{
+  background:var(--card);border-radius:24px;padding:2.2rem;
+  border:1px solid var(--line);min-width:0;
+}
+.field{margin-bottom:1.15rem}
+.field label{display:block;font-size:.84rem;font-weight:600;margin-bottom:.35rem;color:var(--soft)}
+.field input,.field select,.field textarea{
+  width:100%;padding:.82rem 1rem;border-radius:12px;
+  border:1px solid var(--line);background:var(--bg2);
+  font:inherit;font-size:.94rem;color:var(--ink);
+  transition:border-color .2s,box-shadow .2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:rgba(255,255,255,.35);
+  box-shadow:0 0 0 3px rgba(255,255,255,.06);
+}
+.field textarea{min-height:110px;resize:vertical}
+.field select option{background:#111;color:var(--ink)}
+.err{display:none;color:#ff8a7a;font-size:.78rem;margin-top:.28rem}
+.field.invalid .err{display:block}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#ff8a7a}
+.hp{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.info-row{display:flex;gap:1rem;align-items:flex-start;padding:1rem 0}
+.info-row+.info-row{border-top:1px solid var(--line)}
+.info-row .ic{
+  flex:0 0 42px;width:42px;height:42px;border-radius:12px;
+  background:var(--accent-bg);border:1px solid var(--line);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+}
+.info-row .ic svg{width:19px;height:19px}
+.info-row h4{font-size:.92rem;margin-bottom:.08rem}
+.info-row p,.info-row a{color:var(--soft);font-size:.9rem}
+.info-row a:hover{color:var(--accent2)}
+.info-row.info-ig{
+  margin:.35rem -.65rem;padding:1rem .65rem;border-radius:14px;
+  background:linear-gradient(135deg,rgba(225,48,108,.08),rgba(131,58,180,.05));
+  border:1px solid rgba(225,48,108,.22);
+}
+.info-row.info-ig .ic{
+  background:linear-gradient(135deg,rgba(225,48,108,.18),rgba(131,58,180,.12));
+  border-color:rgba(225,48,108,.28);color:#fff;
+}
+.info-row.info-ig h4{color:var(--accent2)}
+.info-row.info-ig a{color:#f5b8cc;font-weight:500}
+.hours-live{width:100%;margin-top:.3rem}
+.hours-now{
+  display:flex;align-items:center;gap:.7rem;padding:.7rem .8rem;border-radius:12px;
+  background:var(--accent-bg);border:1px solid var(--line);margin-bottom:.75rem;
+}
+.hours-now.is-closed{background:rgba(255,255,255,.03)}
+.hours-dot{width:9px;height:9px;border-radius:50%;background:#5dffb0;box-shadow:0 0 0 4px rgba(93,255,176,.14)}
+.hours-now.is-closed .hours-dot{background:#777;box-shadow:0 0 0 4px rgba(120,120,120,.12)}
+.hours-now strong{display:block;font-size:.92rem}
+.hours-now p{margin:0;color:var(--soft);font-size:.8rem}
+.hours-week{list-style:none}
+.hours-week li{
+  display:flex;justify-content:space-between;gap:.8rem;padding:.38rem 0;
+  font-size:.84rem;color:var(--soft);border-bottom:1px solid var(--line);
+}
+.hours-week li:last-child{border-bottom:none}
+.hours-week li.is-today{color:var(--ink);font-weight:600}
+.hours-week li.is-today .hours-day{color:var(--accent2)}
+
+/* FOOTER */
+footer{padding:4rem 0 2.5rem;border-top:1px solid var(--line);background:var(--bg2)}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
+footer .f-brand img{width:120px;height:auto;margin-bottom:1rem;filter:invert(1) brightness(1.05)}
+footer .f-brand p{color:var(--soft);font-size:.92rem;max-width:22rem}
+.socials{display:flex;gap:.65rem;margin-top:1.2rem;align-items:center}
+.socials a{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--accent-bg);border:1px solid var(--line);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;transition:transform .3s,border-color .3s,opacity .3s;
+}
+.socials a svg{width:17px;height:17px}
+.socials a:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.3);color:#fff}
+.socials a.social-ig{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,rgba(225,48,108,.2),rgba(131,58,180,.12));
+  border-color:rgba(225,48,108,.35);color:#fff;
+  box-shadow:0 0 22px rgba(225,48,108,.12);
+}
+.socials a:not(.social-ig){opacity:.72}
+footer h4{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:.85rem;font-family:'Inter',sans-serif;font-weight:600}
+footer ul{list-style:none}
+footer li{margin-bottom:.45rem}
+footer li a{color:var(--soft);font-size:.9rem}
+footer li a:hover{color:var(--accent2)}
+.copy{
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  padding-top:1.5rem;border-top:1px solid var(--line);
+  color:var(--soft);font-size:.82rem;
+}
+.demo-note{
+  margin-top:1rem;padding:.65rem 1rem;border-radius:10px;
+  background:rgba(255,255,255,.04);border:1px dashed var(--line);
+  color:var(--soft);font-size:.8rem;text-align:center;
+}
+.kd-credit{
+  display:inline-flex;align-items:center;gap:.55rem;margin-top:1.4rem;
+  color:var(--soft);font-size:.78rem;transition:color .25s;
+}
+.kd-credit:hover{color:var(--accent2)}
+.kd-mark{
+  width:22px;height:22px;border-radius:50%;overflow:hidden;
+  border:1px solid rgba(255,255,255,.15);
+}
+.kd-mark img{width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){
+  footer .cols{grid-template-columns:1fr}
+  section{padding:4.5rem 0}
+}
+</style>
+</head>
+<body class="loading-play">
+
+<div id="loader">
+  <div class="loader-logo">
+    <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio" class="logo-light">
+  </div>
+</div>
+
+<a id="floatLogo" href="#hero" aria-label="FREEDOM, povratak na vrh">
+  <img src="logo.png" alt="" class="logo-light">
+</a>
+
+<nav id="nav">
+  <a class="brand-slot" href="#hero" aria-label="FREEDOM Tattoo & Piercing Studio"></a>
+  <ul>
+    <li><a href="#o-nama">O nama</a></li>
+    <li><a href="#usluge">Usluge</a></li>
+    <li><a href="#galerija">Galerija</a></li>
+    <li><a href="#lokacija">Lokacija</a></li>
+    <li><a href="#faq">Pitanja</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn btn-call" href="tel:+385953915133" title="095 391 5133">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>095 391 5133</span>
+    </a>
+    <a class="btn btn-primary" href="#kontakt"><span class="cta-full">Rezerviraj termin</span><span class="cta-short">Termin</span></a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow h-item"><span class="gothic" aria-hidden="true">F</span> Tattoo & Piercing · Zadar</p>
+        <h1 class="h-item">Umjetnost na koži.<br>Sloboda u izrazu.</h1>
+        <p class="hero-sub h-item">FREEDOM je tattoo i piercing studio u Zadru — realistične tetovaže, fine line, geometrija i profesionalni piercing u opuštenom, sigurnom okruženju.</p>
+        <div class="hero-cta h-item">
+          <a class="btn btn-wa" href="https://wa.me/385953915133" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a class="btn btn-ig" href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="btn btn-ghost" href="#galerija">Pogledaj radove</a>
+        </div>
+        <p class="hero-trust h-item">Najnoviji radovi i proces rada na <a href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer">Instagramu</a> · <a href="https://www.tiktok.com/@freedom_tattoo_piercing" target="_blank" rel="noopener noreferrer">TikToku</a></p>
+      </div>
+      <div class="hero-logo-showcase h-item" aria-hidden="true">
+        <div class="logo-ambient"></div>
+        <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="o-nama">
+  <div class="wrap">
+    <div class="grid rv">
+      <span class="kicker">O nama</span>
+      <h2 class="type-wrap"><span id="typeTarget" data-text="Studio s dušom i preciznošću"></span><span class="type-cursor" id="typeCursor"></span></h2>
+      <p>FREEDOM je tattoo i piercing studio u Zadru koji spaja kreativnost, sigurnost i pažnju prema detaljima. Bilo da tražite prvu tetovažu, veliki realizam ili elegantan piercing — svaki projekt tretiramo kao jedinstvenu suradnju.</p>
+      <p>Studio vodi <strong>Petar Uskok</strong>, tattoo artist s naglaskom na realistične i fine line radove, preciznu liniju i personalizirani dizajn prilagođen vašoj priči. Higijena, sterilni materijali i profesionalan pristup stoje u samom centru našeg rada.</p>
+      <div class="signature">
+        <span>Petar Uskok<small>vl. · tattoo artist</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="usluge">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <span class="kicker">Usluge</span>
+      <h2>Što radimo u studiju</h2>
+    </div>
+    <div class="frame rv d1">
+      <div class="ornament" aria-hidden="true">
+        <svg viewBox="0 0 800 36" fill="none" preserveAspectRatio="none">
+          <path d="M0 18H320M480 18H800M340 18L360 6L380 30L400 18L420 6L440 30L460 18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="services-cols">
+        <div class="service">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 19V5M8 9l4-4 4 4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <div><h3>Realistične tetovaže</h3><p>Portreti, priroda, simbolika — crno-sivi realizam s dubinom i preciznošću.</p></div>
+        </div>
+        <div class="service">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20c4-8 8-12 16-14M6 16c2-3 5-5 9-6"/><path d="M3 21l3-1"/></svg></div>
+          <div><h3>Fine line & ilustrativno</h3><p>Tanke linije, skice, simbolični motivi i elegantan minimalistički pristup.</p></div>
+        </div>
+        <div class="service">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="12"/><line x1="22" y1="8.5" x2="12" y2="12"/><line x1="2" y1="8.5" x2="12" y2="12"/></svg></div>
+          <div><h3>Geometrijske tetovaže</h3><p>Čiste forme, simetrija i moderni geometrijski dizajni.</p></div>
+        </div>
+        <div class="service">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c-4 4-6 7-6 10a6 6 0 0 0 12 0c0-3-2-6-6-10z"/></svg></div>
+          <div><h3>Klasične & apstraktne</h3><p>Tradicionalni motivi, apstrakcija i personalizirani dizajn prema vašoj ideji.</p></div>
+        </div>
+        <div class="service">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="12" r="3"/><circle cx="16" cy="12" r="3"/><path d="M11 12h2"/></svg></div>
+          <div><h3>Piercing uha</h3><p>Helix, tragus, daith, conch, lobe — sigurno i estetski.</p></div>
+        </div>
+        <div class="service">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
+          <div><h3>Piercing nosa</h3><p>Nostril i srodni piercingi uz sterilne materijale i stručan pristup.</p></div>
+        </div>
+      </div>
+      <p class="moto">Svaka tetovaža i piercing nastaju s pažnjom, strašću i posvećenošću umjetnosti.</p>
+      <div class="unsure">
+        <div>
+          <h3>Imate ideju, ali niste sigurni odakle krenuti?</h3>
+          <p>Pošaljite nam poruku — dogovorimo savjetovanje i prilagodimo dizajn vašem stilu.</p>
+        </div>
+        <a class="btn btn-wa" href="#kontakt">Pošalji upit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galerija">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <span class="kicker">Galerija</span>
+      <h2>Radovi iz studija</h2>
+      <p style="color:var(--soft);max-width:32rem;margin:1rem auto 0">Odabrani radovi — realistične tetovaže, fine line i ilustrativni stilovi.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item rv">
+        <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/01-fine-line.jpg" alt="" loading="lazy"></div>
+        <img class="gallery-photo" src="slike/01-fine-line.jpg" alt="Fine line tetovaže na ruci" loading="lazy">
+      </div>
+      <div class="gallery-item rv d1">
+        <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/02-polaroid.jpg" alt="" loading="lazy"></div>
+        <img class="gallery-photo" src="slike/02-polaroid.jpg" alt="Realistična tetovaža u Polaroid stilu" loading="lazy">
+      </div>
+      <div class="gallery-item rv">
+        <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/03-wolf.jpg" alt="" loading="lazy"></div>
+        <img class="gallery-photo" src="slike/03-wolf.jpg" alt="Realističan portret vlka s natpisom" loading="lazy">
+      </div>
+      <div class="gallery-item rv d1">
+        <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/04-roses-cross.jpg" alt="" loading="lazy"></div>
+        <img class="gallery-photo" src="slike/04-roses-cross.jpg" alt="Ruže i geometrijski križ — black and grey" loading="lazy">
+      </div>
+      <div class="gallery-item rv">
+        <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/05-swimmer.jpg" alt="" loading="lazy"></div>
+        <img class="gallery-photo" src="slike/05-swimmer.jpg" alt="Fine line ilustracija plivača" loading="lazy">
+      </div>
+      <div class="gallery-item rv d1">
+        <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/06-compass-map.jpg" alt="" loading="lazy"></div>
+        <img class="gallery-photo" src="slike/06-compass-map.jpg" alt="Kompas, karta i sat — realistična tetovaža" loading="lazy">
+      </div>
+      <div class="gallery-item rv">
+        <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/07-world-yours.jpg" alt="" loading="lazy"></div>
+        <img class="gallery-photo" src="slike/07-world-yours.jpg" alt="The world is yours — klasičan realizam" loading="lazy">
+      </div>
+      <div class="gallery-item rv d1">
+        <div class="gallery-ambient" aria-hidden="true"><img class="gallery-blur" src="slike/08-family-compass.jpg" alt="" loading="lazy"></div>
+        <img class="gallery-photo" src="slike/08-family-compass.jpg" alt="Kompas, obitelj i mjesečeve faze" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proces">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <span class="kicker">Kako krenuti</span>
+      <h2>Od ideje do gotovog rada</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv">
+        <div class="num">1</div>
+        <h3>Javite se</h3>
+        <p>Pošaljite upit putem WhatsAppa ili nas nazovite — odgovaramo u najkraćem roku.</p>
+      </div>
+      <div class="step rv d1">
+        <div class="num">2</div>
+        <h3>Savjetovanje</h3>
+        <p>Razgovaramo o ideji, veličini, mjestu i stilu. Dizajn prilagođavamo vama.</p>
+      </div>
+      <div class="step rv d2">
+        <div class="num">3</div>
+        <h3>Termin u studiju</h3>
+        <p>Profesionalno izvođenje uz higijenu, preciznost i pažnju prema detaljima.</p>
+      </div>
+      <div class="step rv d3">
+        <div class="num">4</div>
+        <h3>Njega</h3>
+        <p>Dajemo jasne upute za zacjeljivanje kako bi rezultat trajao godinama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <span class="kicker">Pitanja</span>
+      <h2>Ono što nas najčešće pitaju</h2>
+    </div>
+    <div class="faq-list rv d1">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Koje stilove tetoviranja radite?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Realistične, fine line, ilustrativne, geometrijske, klasične i apstraktne tetovaže — uvijek prilagođene vašoj ideji i anatomiji.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Radite li piercing?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Da. Nudimo piercing uha (helix, tragus, daith, conch, lobe) i nosa (nostril), uz sterilne materijale i stručan pristup.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kakvo je radno vrijeme?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Ponedjeljak – subota od 12:00 do 20:00. Nedjeljom ne radimo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Gdje se nalazite?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Put Murvice 99, 23000 Zadar. Upute možete otvoriti u sekciji <a class="btn-mini" href="#lokacija">Lokacija</a>.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kako rezervirati termin?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Najbrže putem WhatsAppa — ispunite <a class="btn-mini" href="#kontakt">kontakt formu</a> ili nas nazovite na 095 391 5133.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Prva tetovaža — što očekivati?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Prvo savjetovanje, dogovor o dizajnu i veličini, zatim profesionalno izvođenje u opuštenom okruženju. Objasnit ćemo cijeli proces i njegu nakon rada.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lokacija">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <span class="kicker">Lokacija</span>
+      <h2>Put Murvice 99, Zadar</h2>
+      <p style="color:var(--soft);max-width:34rem;margin:1rem auto 0">Studio se nalazi u Zadru — otvorite upute i dođite na savjetovanje.</p>
+    </div>
+    <div class="map-stage rv d1">
+      <div class="map-frame">
+        <iframe
+          title="FREEDOM Tattoo & Piercing Studio na karti"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Put+Murvice+99,+23000+Zadar&hl=hr&z=16&output=embed"></iframe>
+        <div class="map-pin" aria-hidden="true">
+          <span class="map-pin-core"><img src="logo.png" alt=""></span>
+        </div>
+        <div class="map-hud">
+          <div>
+            <div class="map-hud-title">
+              <h3 class="display">FREEDOM Studio</h3>
+              <a class="map-g" href="https://share.google/iIfN5vf9jvH4Y9dou" target="_blank" rel="noopener noreferrer" aria-label="Google profil" title="Google profil">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              </a>
+            </div>
+            <p>Put Murvice 99, 23000 Zadar</p>
+          </div>
+          <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Put+Murvice+99,+23000+Zadar" target="_blank" rel="noopener noreferrer">Kreni prema studiju</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <span class="kicker">Kontakt</span>
+      <h2>Rezervirajte termin</h2>
+      <p style="color:var(--soft);max-width:30rem;margin:1rem auto 0">Ispunite formu — poruka se otvara u WhatsAppu, spremna za slanje.</p>
+    </div>
+    <div class="grid">
+      <div class="form-card rv d1">
+        <form id="contactForm" novalidate>
+          <div class="field hp" aria-hidden="true">
+            <label for="hp-web">Website</label>
+            <input type="text" id="hp-web" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="fName">Ime i prezime</label>
+            <input type="text" id="fName" name="name" autocomplete="name">
+            <span class="err">Upišite svoje ime.</span>
+          </div>
+          <div class="field">
+            <label for="fPhone">Telefon</label>
+            <input type="tel" id="fPhone" name="phone" autocomplete="tel">
+            <span class="err">Upišite broj telefona.</span>
+          </div>
+          <div class="field">
+            <label for="fService">Što vas zanima</label>
+            <select id="fService" name="service">
+              <option value="">Odaberite uslugu</option>
+              <option>Realistična tetovaža</option>
+              <option>Fine line / ilustrativna tetovaža</option>
+              <option>Geometrijska tetovaža</option>
+              <option>Klasična / apstraktna tetovaža</option>
+              <option>Personalizirani dizajn</option>
+              <option>Piercing uha</option>
+              <option>Piercing nosa</option>
+              <option>Nešto drugo</option>
+            </select>
+            <span class="err">Odaberite uslugu.</span>
+          </div>
+          <div class="field">
+            <label for="fMsg">Poruka</label>
+            <textarea id="fMsg" name="message" placeholder="Opišite ideju, veličinu ili mjesto tetovaže…"></textarea>
+            <span class="err">Napišite kratku poruku.</span>
+          </div>
+          <button class="btn btn-wa" type="submit" style="width:100%;justify-content:center">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            Pošalji na WhatsApp
+          </button>
+        </form>
+      </div>
+      <div class="info-card rv d2">
+        <div class="info-row info-ig">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+          <div>
+            <h4>Instagram</h4>
+            <a href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer">@freedom_tattoo_piercing_zadar</a>
+            <p style="margin-top:.25rem;font-size:.8rem">Najnoviji radovi i proces — pratite nas ovdje.</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></div>
+          <div>
+            <h4>TikTok</h4>
+            <a href="https://www.tiktok.com/@freedom_tattoo_piercing" target="_blank" rel="noopener noreferrer">@freedom_tattoo_piercing</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <h4>Adresa</h4>
+            <p>Put Murvice 99, 23000 Zadar</p>
+            <a href="https://share.google/iIfN5vf9jvH4Y9dou" target="_blank" rel="noopener noreferrer">Google profil</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <h4>Telefon / WhatsApp</h4>
+            <a href="tel:+385953915133">095 391 5133</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div style="width:100%">
+            <h4>Radno vrijeme</h4>
+            <div class="hours-live" id="hoursLive">
+              <div class="hours-now" id="hoursNow">
+                <span class="hours-dot" aria-hidden="true"></span>
+                <div>
+                  <strong id="hoursLabel">Učitavanje…</strong>
+                  <p id="hoursRemain"></p>
+                </div>
+              </div>
+              <ul class="hours-week" id="hoursWeek"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div class="f-brand">
+        <img src="logo.png" alt="FREEDOM Tattoo & Piercing Studio">
+        <p>Tattoo i piercing studio u Zadru. Realistične tetovaže, fine line i profesionalni piercing — vl. Petar Uskok.</p>
+        <div class="socials">
+          <a class="social-ig" href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@freedom_tattoo_piercing" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+          </a>
+          <a href="https://share.google/iIfN5vf9jvH4Y9dou" target="_blank" rel="noopener noreferrer" aria-label="Google profil">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 12h5a5 5 0 1 1-1.5-3.5"/></svg>
+          </a>
+          <a href="https://wa.me/385953915133" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Brzi linkovi</h4>
+        <ul>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#usluge">Usluge</a></li>
+          <li><a href="#galerija">Galerija</a></li>
+          <li><a href="#lokacija">Lokacija</a></li>
+          <li><a href="#faq">Pitanja</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+385953915133">095 391 5133</a></li>
+          <li><a href="https://wa.me/385953915133" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/freedom_tattoo_piercing_zadar/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://share.google/iIfN5vf9jvH4Y9dou" target="_blank" rel="noopener noreferrer">Put Murvice 99, Zadar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span id="year">2026</span> FREEDOM Tattoo & Piercing Studio. Sva prava pridržana.</span>
+      <span>Put Murvice 99, Zadar · 095 391 5133</span>
+    </div>
+    <p class="demo-note">Vizualni prijedlog · preview verzija</p>
+    <a class="kd-credit" href="https://kasalo-digital.hr" target="_blank" rel="noopener noreferrer" aria-label="Kasalo Digital">
+      <span class="kd-mark" aria-hidden="true"><img src="kasalo-logo.png" alt=""></span>
+      <span>Izrada: <strong>Kasalo</strong><em>Digital</em></span>
+    </a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const loader=document.getElementById('loader');
+  function dismiss(){
+    if(loader)loader.classList.add('done');
+    document.body.classList.add('go');
+    document.body.classList.remove('loading-play');
+  }
+  setTimeout(dismiss,1100);
+  if(loader)loader.addEventListener('click',dismiss);
+})();
+
+(function(){
+  const logo=document.getElementById('floatLogo');
+  const nav=document.getElementById('nav');
+  if(!logo)return;
+  function onScroll(){
+    const y=window.scrollY||0;
+    if(nav)nav.classList.toggle('scrolled',y>20);
+    logo.classList.toggle('docked',y>60);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+
+(function(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv,.step').forEach(el=>obs.observe(el));
+})();
+
+(function(){
+  const target=document.getElementById('typeTarget');
+  const cursor=document.getElementById('typeCursor');
+  if(!target)return;
+  const text=target.dataset.text||'';
+  let i=0,started=false;
+  const obs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting&&!started){
+      started=true;
+      const tick=()=>{
+        if(i<=text.length){
+          target.textContent=text.slice(0,i);
+          i++;
+          setTimeout(tick,45);
+        }else if(cursor)cursor.style.display='none';
+      };
+      tick();
+      obs.disconnect();
+    }
+  },{threshold:.4});
+  obs.observe(target.closest('.grid')||target);
+})();
+
+(function(){
+  const items=document.querySelectorAll('.faq-item');
+  items.forEach(item=>{
+    const q=item.querySelector('.faq-q');
+    const a=item.querySelector('.faq-a');
+    if(!q||!a)return;
+    q.addEventListener('click',()=>{
+      const open=item.classList.contains('open');
+      items.forEach(o=>{
+        o.classList.remove('open');
+        const oa=o.querySelector('.faq-a');
+        if(oa)oa.style.maxHeight='';
+      });
+      if(!open){
+        item.classList.add('open');
+        a.style.maxHeight=a.scrollHeight+'px';
+      }
+    });
+  });
+})();
+
+(function(){
+  const form=document.getElementById('contactForm');
+  const WA='385953915133';
+  if(!form)return;
+  form.addEventListener('submit',ev=>{
+    ev.preventDefault();
+    const hp=document.getElementById('hp-web');
+    if(hp&&hp.value)return;
+    let ok=true;
+    [['fName',v=>v.trim().length>1],
+     ['fPhone',v=>v.trim().length>5],
+     ['fService',v=>v.trim().length>0],
+     ['fMsg',v=>v.trim().length>2]].forEach(([id,valid])=>{
+      const el=document.getElementById(id);
+      if(!el)return;
+      const field=el.closest('.field');
+      const bad=!valid(el.value);
+      if(field)field.classList.toggle('invalid',bad);
+      if(bad)ok=false;
+    });
+    if(!ok)return;
+    const name=document.getElementById('fName').value.trim();
+    const phone=document.getElementById('fPhone').value.trim();
+    const service=document.getElementById('fService').value.trim();
+    const msg=document.getElementById('fMsg').value.trim();
+    const text=[
+      'Pozdrav, zovem se '+name+'.',
+      'Telefon: '+phone,
+      'Usluga: '+service,
+      '',
+      msg
+    ].join('\n');
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank','noopener,noreferrer');
+  });
+})();
+
+(function(){
+  const y=document.getElementById('year');
+  if(y)y.textContent=String(new Date().getFullYear());
+})();
+
+(function(){
+  const nowBox=document.getElementById('hoursNow');
+  const label=document.getElementById('hoursLabel');
+  const remain=document.getElementById('hoursRemain');
+  const week=document.getElementById('hoursWeek');
+  if(!nowBox||!label||!remain||!week)return;
+  const dayNames=['Nedjelja','Ponedjeljak','Utorak','Srijeda','Četvrtak','Petak','Subota'];
+  const dayShort=['Ned','Pon','Uto','Sri','Čet','Pet','Sub'];
+  const schedule={
+    0:null,
+    1:[12,0,20,0],2:[12,0,20,0],3:[12,0,20,0],
+    4:[12,0,20,0],5:[12,0,20,0],6:[12,0,20,0]
+  };
+  function pad(n){return String(n).padStart(2,'0');}
+  function fmtHM(h,m){return pad(h)+':'+pad(m);}
+  function atDay(base,h,m){const d=new Date(base);d.setHours(h,m,0,0);return d;}
+  function formatLeft(ms){
+    const total=Math.max(0,Math.floor(ms/60000));
+    const h=Math.floor(total/60),m=total%60;
+    if(h<=0)return m+' min';
+    if(m===0)return h+' h';
+    return h+' h '+m+' min';
+  }
+  function nextOpen(from){
+    for(let i=0;i<8;i++){
+      const d=new Date(from);d.setDate(d.getDate()+i);
+      const key=d.getDay(),slot=schedule[key];
+      if(!slot)continue;
+      const open=atDay(d,slot[0],slot[1]);
+      if(open>from)return {when:open,day:key};
+    }
+    return null;
+  }
+  function render(){
+    const now=new Date(),today=now.getDay(),slot=schedule[today];
+    let open=false,remainText='',labelText='';
+    if(slot){
+      const openAt=atDay(now,slot[0],slot[1]);
+      const closeAt=atDay(now,slot[2],slot[3]);
+      if(now>=openAt&&now<closeAt){
+        open=true;labelText='Otvoreno';
+        remainText='Zatvara se za '+formatLeft(closeAt-now)+', danas do '+fmtHM(slot[2],slot[3]);
+      }else if(now<openAt){
+        labelText='Zatvoreno';
+        remainText='Otvara se za '+formatLeft(openAt-now)+', danas u '+fmtHM(slot[0],slot[1]);
+      }else{
+        labelText='Zatvoreno';
+        const n=nextOpen(now);
+        if(n){
+          const tom=new Date(now);tom.setDate(tom.getDate()+1);
+          const isTomorrow=n.when.toDateString()===tom.toDateString();
+          remainText='Otvara se '+(isTomorrow?'sutra':dayNames[n.day].toLowerCase())+' u '+fmtHM(schedule[n.day][0],schedule[n.day][1]);
+        }
+      }
+    }else{
+      labelText='Zatvoreno';
+      const n=nextOpen(now);
+      if(n)remainText='Otvara se '+dayNames[n.day].toLowerCase()+' u '+fmtHM(schedule[n.day][0],schedule[n.day][1]);
+    }
+    nowBox.classList.toggle('is-closed',!open);
+    label.textContent=labelText+', '+dayNames[today];
+    remain.textContent=remainText||'Provjerite raspored ispod';
+    const order=[1,2,3,4,5,6,0];
+    week.innerHTML='';
+    order.forEach(key=>{
+      const li=document.createElement('li');
+      const s=schedule[key];
+      const isToday=key===today;
+      if(isToday)li.classList.add('is-today');
+      if(!s)li.classList.add('is-closed-day');
+      const day=document.createElement('span');
+      day.className='hours-day';
+      day.textContent=dayShort[key]+(isToday?', danas':'');
+      const range=document.createElement('span');
+      range.className='hours-range';
+      range.textContent=s?(fmtHM(s[0],s[1])+' – '+fmtHM(s[2],s[3])):'Zatvoreno';
+      li.appendChild(day);li.appendChild(range);week.appendChild(li);
+    });
+  }
+  render();
+  setInterval(render,30000);
+})();
+</script>
+</body>
+</html>
